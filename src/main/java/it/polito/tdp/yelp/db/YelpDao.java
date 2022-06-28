@@ -111,5 +111,27 @@ public class YelpDao {
 		}
 	}
 	
+	public List<String> listaCity(){
+		String sql = "SELECT DISTINCT city "
+				+ "FROM Business;";
+		List<String> result = new ArrayList<String>();
+		Connection conn = DBConnect.getConnection();
+		
+		try {
+			PreparedStatement st = conn.prepareStatement(sql);
+			ResultSet res = st.executeQuery();
+			while(res.next()) {
+				result.add(res.getString("city"));
+			}
+			conn.close();
+			return result;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		
+	}
+	
 	
 }

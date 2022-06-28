@@ -37,7 +37,7 @@ public class FXMLController {
     private TextField txtX2; // Value injected by FXMLLoader
 
     @FXML // fx:id="cmbCitta"
-    private ComboBox<?> cmbCitta; // Value injected by FXMLLoader
+    private ComboBox<String> cmbCitta; // Value injected by FXMLLoader
 
     @FXML // fx:id="cmbB1"
     private ComboBox<?> cmbB1; // Value injected by FXMLLoader
@@ -80,5 +80,8 @@ public class FXMLController {
     
     public void setModel(Model model) {
     	this.model = model;
+    	for(String s : this.model.listaCity()) {
+    		this.cmbCitta.getItems().add(s);
+    	}
     }
 }
