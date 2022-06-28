@@ -50,7 +50,20 @@ public class FXMLController {
     
     @FXML
     void doCreaGrafo(ActionEvent event) {
+    	String city = cmbCitta.getValue();
     	
+    	if(city == null) {
+    		txtResult.setText("Devi selezionare una città");
+    		return;
+    	}
+    	
+    	this.model.creaGrafo(city);
+    	
+    	txtResult.appendText("Il grafo è stato creato");
+    	txtResult.appendText("\nN° vertici: " + model.nVertici());
+    	txtResult.appendText("\nN° archi: " + model.nArchi());
+    	
+    	    	
     }
 
     @FXML
